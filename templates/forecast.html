@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}16-Day Forecast for {{ city }}{% endblock %}
+
+{% block content %}
+<h1>16-Day Weather Forecast for {{ city }}</h1>
+
+<div class="forecast-container">
+  {% for day in forecast %}
+  <div class="forecast-day">
+    <h3>{{ day.date }}</h3>
+    <p>Max Temp: {{ day.max_temp }}°C</p>
+    <p>Min Temp: {{ day.min_temp }}°C</p>
+    <p>Description: {{ day.description }}</p>
+    <p>Precipitation: {{ day.precip }} mm</p>
+    <p>UV Index: {{ day.uv }}</p>
+    <p>Wind: {{ day.wind_speed }} km/h, {{ day.wind_direction }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

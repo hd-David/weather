@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Search History{% endblock %}
+
+{% block content %}
+<h2>Search History</h2>
+<table>
+  <thead>
+    <tr>
+      <th>City</th>
+      <th>Timestamp</th>
+      <th>Weather Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for search in searches %}
+    <tr>
+      <td>{{ search.city }}</td>
+      <td>{{ search.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+      <td>
+	{% set weather_data = search.weather_data | fromjson %}
+	<ul>
+	  <li>Temperature: {{ weather_data.temperature }}°C</li>
+	  <li>Feels Like: {{ weather_data.feels_like }}°C</li>
+	  <li>Description: {{ weather_data.description }}</li>
+	  <li>Wind Speed: {{ weather_data.wind_speed }} km/h</li>
+	  <li>Humidity: {{ weather_data.humidity }}%</li>
+	  <li>AQI: {{ weather_data.aqi }}</li>
+	  <li>Observation Time: {{ weather_data.ob_time }}</li>
+	</ul>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if not searches %}
+<p>No search history available.</p>
+{% endif %}
+{% endblock %}

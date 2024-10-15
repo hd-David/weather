@@ -1,0 +1,125 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa; /* Light background color */
+    color: #333; /* Default text color */
+}
+
+header {
+    background-color: #00796b; /* Teal color for the header */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold; /* Make links bold */
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+    max-width: 800px; /* Center content with max width */
+    margin: auto; /* Center the main content */
+    background-color: white; /* White background for main content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+h1 {
+    font-size: 2.5em; /* Larger font size for the main heading */
+}
+
+h2 {
+    color: #00796b; /* Teal color for subheadings */
+}
+
+h3 {
+    color: #004d40; /* Darker teal for third level headings */
+}
+
+/* Form Styles */
+form {
+    margin: 20px 0; /* Add some margin around the form */
+    display: flex;
+    flex-direction: column; /* Stack form elements vertically */
+}
+
+form p {
+    margin: 10px 0; /* Space out form elements */
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #00796b; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+}
+
+input[type="submit"] {
+    background-color: #00796b; /* Button color */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    font-weight: bold; /* Make button text bold */
+}
+
+input[type="submit"]:hover {
+    background-color: #004d40; /* Darker teal on hover */
+}
+
+/* Weather Display Styles */
+.weather-info {
+    background-color: #f1f8e9; /* Light green background for weather info */
+    padding: 15px;
+    border-radius: 8px; /* Rounded corners */
+    margin-top: 20px; /* Space above weather info */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Last Searched Cities */
+ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+ul li {
+    background-color: #e0f2f1; /* Light background for list items */
+    margin: 5px 0; /* Space between list items */
+    padding: 10px; /* Padding inside list items */
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #00796b; /* Match footer to header */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* No Data Available */
+td[colspan="7"] {
+    text-align: center;
+    font-style: italic;
+    color: #999;
+}
+
+.weather-info i {
+    color: #00796b; /* Change color to match your theme */
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 1.2em; /* Adjust icon size */
+}

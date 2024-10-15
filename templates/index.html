@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Weather App{% endblock %}
+
+{% block content %}
+<div class="form-container">
+  <form method="POST" >
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.city.label }}<br>
+      {{ form.city(size=32) }}<br>
+      {% for error in form.city.errors %}
+      <span class="error">{{ error }}</span>
+      {% endfor %}
+      
+      <div class="button-group">
+	{{ form.current_weather() }}
+	{{ form.forecast() }}
+      </div>
+    </p>
+  </form>
+</div>
+
+{% if weather %}
+<div class="weather-info">
+  <h2>Weather in {{ weather.city }}</h2>
+  <p>
+    <i class="fas fa-thermometer-half"></i> <!-- Temperature Icon -->
+    Temperature: {{ weather.temperature }}°C
+  </p>
+  <p>
+    <i class="fas fa-thermometer-three-quarters"></i> <!-- Feels Like Icon -->
+    Feels Like: {{ weather.feels_like }}°C
+  </p>
+  <p>
+    <i class="fas fa-tint"></i> <!-- Humidity Icon -->
+    Humidity: {{ weather.humidity }}%
+  </p>
+  <p>
+    <i class="fas fa-wind"></i> <!-- Wind Speed Icon -->
+    Wind Speed: {{ weather.wind_speed }} m/s
+  </p>
+  <p>
+    <i class="fas fa-cloud-sun"></i> <!-- Weather Description Icon -->
+    Description: {{ weather.description }}
+  </p>
+</div>
+{% endif %}
+
+<h3>Last 5 Searched Cities</h3>
+<ul>
+  {% for search in last_searched_cities %}
+  <li>{{ search.city }}</li>
+  {% else %}
+  <li>No cities searched yet.</li>
+  {% endfor %}
+</ul>
+
+<style>
+  .error {
+      color: red;
+      font-size: 0.8em;
+      margin-top: 5px;
+  }
+  
+  .form-container {
+      margin: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .button-group {
+      margin-top: 10px;
+  }
+
+  .button-group button {
+      margin-right: 10px;
+  }
+
+  .weather-info {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      background-color: #f0f8ff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+</style>
+{% endblock %}
